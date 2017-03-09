@@ -85,7 +85,6 @@
 		0EC57C181E715F5C00B247E0 /* MJSnackBarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJSnackBarData.swift; sourceTree = "<group>"; };
 		0EC57C191E715F5C00B247E0 /* MJSnackBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJSnackBarDelegate.swift; sourceTree = "<group>"; };
 		0EF740551E6EB977006954EC /* power-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "power-button.png"; sourceTree = "<group>"; };
-		0EF740571E6EC15E006954EC /* EMP.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = EMP.db; sourceTree = "<group>"; };
 		0EFBAB1E1E6E8D7C0074277D /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		0EFBAB201E6E8D870074277D /* EmployeeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		0EFBAB221E6E8D920074277D /* EmployeeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +124,6 @@
 			children = (
 				0EC57C141E712AE600B247E0 /* EMP.sqlite */,
 				0EC57BED1E71212E00B247E0 /* Third Party */,
-				0EF740571E6EC15E006954EC /* EMP.db */,
 				0EB56AE91E6D94AE0039E5CC /* Controller */,
 				0EB56AE61E6D907B0039E5CC /* resource */,
 				0EB56AB71E6D788B0039E5CC /* EMP */,

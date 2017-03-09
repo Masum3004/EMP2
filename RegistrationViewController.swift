@@ -26,6 +26,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
      var snackbar: MJSnackBar!
     
+    var isChecked = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,10 +37,17 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         
         snackbar = MJSnackBar(onView: self.view)
        
+        //txtUserName.addTarget(self, action:Selector(("usernameChangedEvent:")), for: UIControlEvents.editingChanged);
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-
+    @IBAction func usernameChangedEvent(sender : AnyObject) {
+    
+        isChecked = false
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -154,7 +163,67 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-   
+    @IBAction func btnCheckAvailability(_ sender: Any) {
+        
+        isChecked = getParentId(username: txtUserName.text!)
+        
+        if isChecked {
+           
+            let data = MJSnackBarData(message: "User name already exists")
+            
+            snackbar.show(data: data, onView: self.view)
+        }
+        else {
+            let data = MJSnackBarData(message: "you can use this")
+            
+            snackbar.show(data: data, onView: self.view)
+        }
+    }
+    
+    func getParentId(username : String) ->Bool {
+        
+        var isExist = false
+        
+        let sharedInstance = ModelManager.getInstance()
+        
+        sharedInstance.database!.open()
+        let resultSet: FMResultSet! = sharedInstance.database!.executeQuery("SELECT * FROM Parent where username ='\(username)'", withArgumentsIn: nil)
+        
+        let parentArr : NSMutableArray = NSMutableArray()
+        
+        
+        if (resultSet != nil) {
+            
+            while resultSet.next() {
+                
+                
+                let parentDict : NSMutableDictionary = NSMutableDictionary()
+                
+                parentDict.setValue(resultSet.string(forColumn: "emp_id"), forKey: "emp_id")
+                parentDict.setValue(resultSet.string(forColumn: "username")
+                    , forKey: "username")
+                parentDict.setValue(resultSet.string(forColumn: "name")
+                    , forKey: "name")
+                parentDict.setValue(resultSet.string(forColumn: "mobile_no")
+                    , forKey: "mobile_no")
+                parentDict.setValue(resultSet.string(forColumn: "password")
+                    , forKey: "password")
+                
+                parentArr.add(parentDict)
+            }
+            
+            if (parentArr.count > 0) {
+                
+                isExist = true
+            }
+        }
+        else {
+            isExist =  false
+        }
+        sharedInstance.database!.close()
+        
+        return isExist
+    }
 
 
 }

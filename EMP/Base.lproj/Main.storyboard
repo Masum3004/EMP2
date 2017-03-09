@@ -259,6 +259,7 @@
                                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
+                                                            <action selector="usernameChangedEventWithSender:" destination="NOA-Ys-C45" eventType="editingChanged" id="xN4-5c-NCd"/>
                                                             <outlet property="delegate" destination="NOA-Ys-C45" id="e2h-gf-KiA"/>
                                                         </connections>
                                                     </textField>
@@ -284,6 +285,9 @@
                                                 <state key="normal" title="Check availability">
                                                     <color key="titleColor" red="0.47058823529411764" green="0.20784313725490194" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnCheckAvailability:" destination="NOA-Ys-C45" eventType="touchUpInside" id="tyt-IZ-gwv"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yb-hE-l2T">
                                                 <rect key="frame" x="24" y="116" width="327" height="60"/>
@@ -548,7 +552,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zqa-gQ-pBI">
                                                         <rect key="frame" x="0.0" y="20" width="327" height="40"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="0.54017065600000003" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -580,7 +584,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rti-yP-np6">
                                                         <rect key="frame" x="0.0" y="20" width="327" height="40"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="0.54017065600000003" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -612,7 +616,7 @@
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="88W-fM-qeJ">
                                                         <rect key="frame" x="0.0" y="20" width="327" height="40"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="0.54017065600000003" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -687,6 +691,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomConstraints" destination="S5P-8n-jgu" id="apK-MW-uj7"/>
+                        <outlet property="btnUpdateMember" destination="gfB-mi-5p7" id="2Ep-9a-K2T"/>
                         <outlet property="scrollView" destination="i7R-of-rdY" id="6Ut-Vi-UbB"/>
                         <outlet property="txtDepartment" destination="Rti-yP-np6" id="6LB-3E-Ogg"/>
                         <outlet property="txtMobileno" destination="88W-fM-qeJ" id="w7D-rL-qjU"/>
@@ -726,9 +731,6 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="back.png"/>
-                                        <connections>
-                                            <action selector="btnBack:" destination="BgL-6Y-bHs" eventType="touchUpInside" id="Itw-L2-zSI"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPC-VP-dyl">
                                         <rect key="frame" x="333" y="25" width="40" height="40"/>
@@ -791,7 +793,7 @@
                                     <action selector="btnSaveMember:" destination="kga-gG-2Wy" eventType="touchUpInside" id="Kfc-oH-5QI"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-1T-eve">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cqI-1T-eve">
                                 <rect key="frame" x="0.0" y="117" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -855,6 +857,12 @@
                                     <outlet property="delegate" destination="BgL-6Y-bHs" id="k33-04-Vxm"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't add any member yet." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeS-vH-gGG">
+                                <rect key="frame" x="51" y="322.5" width="272.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldItalicMT" family="Times New Roman" pointSize="20"/>
+                                <color key="textColor" red="0.47058823529999999" green="0.20784313730000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -863,8 +871,10 @@
                             <constraint firstItem="cqI-1T-eve" firstAttribute="leading" secondItem="xIz-E1-HbY" secondAttribute="leading" id="4gR-gW-H75"/>
                             <constraint firstItem="Pdt-5h-txH" firstAttribute="top" secondItem="CLm-r0-N6B" secondAttribute="bottom" constant="1" id="8SO-j3-0PB"/>
                             <constraint firstAttribute="trailing" secondItem="Pdt-5h-txH" secondAttribute="trailing" id="9Ht-ks-Z44"/>
+                            <constraint firstItem="NeS-vH-gGG" firstAttribute="centerX" secondItem="xIz-E1-HbY" secondAttribute="centerX" id="G98-0c-4yk"/>
                             <constraint firstItem="cqI-1T-eve" firstAttribute="top" secondItem="Pdt-5h-txH" secondAttribute="bottom" constant="1" id="S5l-nK-ikx"/>
                             <constraint firstItem="Pdt-5h-txH" firstAttribute="leading" secondItem="xIz-E1-HbY" secondAttribute="leading" id="WK7-vV-ijK"/>
+                            <constraint firstItem="NeS-vH-gGG" firstAttribute="centerY" secondItem="xIz-E1-HbY" secondAttribute="centerY" id="X14-Xf-Kgd"/>
                             <constraint firstItem="kw3-1R-8eC" firstAttribute="leading" secondItem="xIz-E1-HbY" secondAttribute="leading" id="Zst-wB-RYU"/>
                             <constraint firstAttribute="trailing" secondItem="cqI-1T-eve" secondAttribute="trailing" id="dCG-C0-Cti"/>
                             <constraint firstAttribute="trailing" secondItem="kw3-1R-8eC" secondAttribute="trailing" id="hln-9U-oHb"/>
@@ -874,6 +884,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblNoMember" destination="NeS-vH-gGG" id="p8r-jg-Dha"/>
                         <outlet property="tableView" destination="cqI-1T-eve" id="rdC-JJ-0bV"/>
                         <outlet property="txtSearch" destination="r2s-71-tHc" id="fL5-nk-ytv"/>
                     </connections>

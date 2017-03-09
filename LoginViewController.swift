@@ -80,10 +80,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
           let isExist = getParentId(username: txtUsername.text!, password: txtPassword.text!)
             
             if isExist {
-            //navigation
-                let data = MJSnackBarData(message: "Logged In")
-                
-                snackbar.show(data: data, onView: self.view)
+           
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "EMPLOYEE_LIST")
+                navigationController?.pushViewController(viewController, animated: true)
+
             }
             else {
                 let data = MJSnackBarData(message: "Username/Password is wrong")
