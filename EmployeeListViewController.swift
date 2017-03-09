@@ -54,14 +54,39 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
        cell.lblDepartment.text = "Departmet Name"
         cell.lblMemberName.text = "Member Name"
         
-       
         return cell;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 94;
     }
-   
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    }
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        //1
+        
+        
+        let moreAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "More" , handler: { (action:UITableViewRowAction!, indexPath:IndexPath!) -> Void in
+       
+        })
+        moreAction.backgroundColor = UIColor.brown
+        
+                // 5
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:IndexPath!) -> Void in
+           
+        })
+        deleteAction.backgroundColor = UIColor.red
+        deleteAction.backgroundColor = UIColor(patternImage: UIImage(named: "phone-call.png")!)
+        
+        // 7
+        return [deleteAction, moreAction]
+    }
+
+
     //MARK: UITextField
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -69,4 +94,6 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
         textField.resignFirstResponder()
         return true
     }
+    
+    
 }
