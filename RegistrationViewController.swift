@@ -52,6 +52,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
         if (txtUserName.text == "" || txtName.text == "" || txtPassword.text == "" || txtMobileNo.text == "" || txtConfirmPassword.text == "" ) {
             
+            
             Util.invokeAlertMethod("EMP", strBody: "Please enter all details", delegate: nil)
         }
         else if(txtPassword.text != txtConfirmPassword.text) {
