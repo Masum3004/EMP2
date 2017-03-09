@@ -18,13 +18,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
    
     @IBOutlet weak var txtPassword: UITextField!
     
+    var snackbar: MJSnackBar!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-       imageWithGradient()
+        imageWithGradient()
+        
+        snackbar = MJSnackBar(onView: self.view)
         
         btnRegisterNow.layer.borderWidth = 0.5;
         btnRegisterNow.layer.borderColor = UIColor.white.cgColor
@@ -65,11 +69,95 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func btnSignIn(_ sender: Any) {
         
+        if (txtUsername.text == "" || txtPassword.text == ""  ) {
+            
+            let data = MJSnackBarData(message: "Please enter all details")
+            
+            snackbar.show(data: data, onView: self.view)
+        }
+        else {
+        
+          let isExist = getParentId(username: txtUsername.text!, password: txtPassword.text!)
+            
+            if isExist {
+            //navigation
+                let data = MJSnackBarData(message: "Logged In")
+                
+                snackbar.show(data: data, onView: self.view)
+            }
+            else {
+                let data = MJSnackBarData(message: "Username/Password is wrong")
+                
+                snackbar.show(data: data, onView: self.view)
+            }
+            
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         return true
+    }
+    
+    func getParentId(username : String, password : String) ->Bool {
+        
+        var isExist = false
+        
+        let sharedInstance = ModelManager.getInstance()
+       
+        sharedInstance.database!.open()
+        let resultSet: FMResultSet! = sharedInstance.database!.executeQuery("SELECT * FROM Parent where username ='\(username)' AND password = '\(password)'", withArgumentsIn: nil)
+        print("-----\(resultSet)")
+        let parentArr : NSMutableArray = NSMutableArray()
+       
+
+        if (resultSet != nil) {
+            
+            while resultSet.next() {
+                
+
+            let parentDict : NSMutableDictionary = NSMutableDictionary()
+                
+                parentDict.setValue(resultSet.string(forColumn: "emp_id"), forKey: "emp_id")
+                parentDict.setValue(resultSet.string(forColumn: "username")
+                    , forKey: "username")
+                parentDict.setValue(resultSet.string(forColumn: "name")
+                    , forKey: "name")
+                parentDict.setValue(resultSet.string(forColumn: "mobile_no")
+                    , forKey: "mobile_no")
+                parentDict.setValue(resultSet.string(forColumn: "password")
+                    , forKey: "password")
+
+                parentArr.add(parentDict)
+            }
+            
+            print("------>>\(parentArr)")
+            if (parentArr.count > 0) {
+               
+                isExist = true
+                
+                var dict = NSDictionary()
+                
+                dict = parentArr.object(at: 0) as! NSDictionary
+                
+                let emp_id = dict.value(forKey: "emp_id")
+                
+                print(emp_id as Any)
+                
+                UserDefaults.standard.set(emp_id, forKey: "parentId")
+                UserDefaults.standard.synchronize()
+            }
+            
+        }
+        else {
+            let data = MJSnackBarData(message: "Please check record")
+            
+            snackbar.show(data: data, onView: self.view)
+            isExist =  false
+        }
+        sharedInstance.database!.close()
+        
+        return isExist
     }
 }

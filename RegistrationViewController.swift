@@ -24,6 +24,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bottomConstraints: NSLayoutConstraint!
     
+     var snackbar: MJSnackBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         
         bottomConstraints.constant = 15.0
         
+        snackbar = MJSnackBar(onView: self.view)
+       
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -52,12 +55,15 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
         if (txtUserName.text == "" || txtName.text == "" || txtPassword.text == "" || txtMobileNo.text == "" || txtConfirmPassword.text == "" ) {
             
+            let data = MJSnackBarData(message: "Please enter all details")
             
-            Util.invokeAlertMethod("EMP", strBody: "Please enter all details", delegate: nil)
+            snackbar.show(data: data, onView: self.view)
         }
         else if(txtPassword.text != txtConfirmPassword.text) {
             
-            Util.invokeAlertMethod("EMP", strBody: "Password doesn't match", delegate: nil)
+            let data = MJSnackBarData(message: "Password doesn't match")
+            
+            snackbar.show(data: data, onView: self.view)
         }
         else {
             insertData()
@@ -81,7 +87,11 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 successfulInsertion()
             }
             else {
-                Util.invokeAlertMethod("", strBody: "Not Inserted", delegate: nil)
+                
+                let data = MJSnackBarData(message: "Not Inserted")
+                
+                snackbar.show(data: data, onView: self.view)
+
             }
             
         }
@@ -142,7 +152,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         }));
         present(alert, animated: true, completion: nil);
     }
-
+    
+    
+   
 
 
 }

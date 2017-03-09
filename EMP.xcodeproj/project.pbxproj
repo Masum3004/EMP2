@@ -24,6 +24,9 @@
 		0EC57C121E71254200B247E0 /* fmdb.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0EC57C0D1E71254200B247E0 /* fmdb.txt */; };
 		0EC57C131E71254200B247E0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C0F1E71254200B247E0 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0EC57C151E712AE600B247E0 /* EMP.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0EC57C141E712AE600B247E0 /* EMP.sqlite */; };
+		0EC57C1A1E715F5C00B247E0 /* MJSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C171E715F5C00B247E0 /* MJSnackBar.swift */; };
+		0EC57C1B1E715F5C00B247E0 /* MJSnackBarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C181E715F5C00B247E0 /* MJSnackBarData.swift */; };
+		0EC57C1C1E715F5C00B247E0 /* MJSnackBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C191E715F5C00B247E0 /* MJSnackBarDelegate.swift */; };
 		0EF740561E6EB977006954EC /* power-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EF740551E6EB977006954EC /* power-button.png */; };
 		0EFBAB1F1E6E8D7C0074277D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFBAB1E1E6E8D7C0074277D /* RegistrationViewController.swift */; };
 		0EFBAB211E6E8D870074277D /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFBAB201E6E8D870074277D /* EmployeeListViewController.swift */; };
@@ -78,6 +81,9 @@
 		0EC57C0E1E71254200B247E0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		0EC57C0F1E71254200B247E0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		0EC57C141E712AE600B247E0 /* EMP.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = EMP.sqlite; sourceTree = "<group>"; };
+		0EC57C171E715F5C00B247E0 /* MJSnackBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJSnackBar.swift; sourceTree = "<group>"; };
+		0EC57C181E715F5C00B247E0 /* MJSnackBarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJSnackBarData.swift; sourceTree = "<group>"; };
+		0EC57C191E715F5C00B247E0 /* MJSnackBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJSnackBarDelegate.swift; sourceTree = "<group>"; };
 		0EF740551E6EB977006954EC /* power-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "power-button.png"; sourceTree = "<group>"; };
 		0EF740571E6EC15E006954EC /* EMP.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = EMP.db; sourceTree = "<group>"; };
 		0EFBAB1E1E6E8D7C0074277D /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 		0EC57BED1E71212E00B247E0 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				0EC57C161E715F1C00B247E0 /* MKSnackbar */,
 				0EC57C071E71240E00B247E0 /* ModelManager.swift */,
 				0EC57C001E7121A100B247E0 /* Util.swift */,
 				0EC57BEE1E71213800B247E0 /* FMDB */,
@@ -225,6 +232,16 @@
 				0EC57C031E7121FF00B247E0 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0EC57C161E715F1C00B247E0 /* MKSnackbar */ = {
+			isa = PBXGroup;
+			children = (
+				0EC57C171E715F5C00B247E0 /* MJSnackBar.swift */,
+				0EC57C181E715F5C00B247E0 /* MJSnackBarData.swift */,
+				0EC57C191E715F5C00B247E0 /* MJSnackBarDelegate.swift */,
+			);
+			name = MKSnackbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,12 +388,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EC57C1A1E715F5C00B247E0 /* MJSnackBar.swift in Sources */,
 				0EFBAB211E6E8D870074277D /* EmployeeListViewController.swift in Sources */,
 				0EFBAB291E6EAB2A0074277D /* EmployeeTableViewCell.swift in Sources */,
 				0E02D2E01E6D952600D886AE /* LoginViewController.swift in Sources */,
 				0EC57C101E71254200B247E0 /* FMDatabase.m in Sources */,
+				0EC57C1B1E715F5C00B247E0 /* MJSnackBarData.swift in Sources */,
 				0EC57C081E71240E00B247E0 /* ModelManager.swift in Sources */,
 				0EB56ABB1E6D788B0039E5CC /* ViewController.swift in Sources */,
+				0EC57C1C1E715F5C00B247E0 /* MJSnackBarDelegate.swift in Sources */,
 				0EC57C131E71254200B247E0 /* FMResultSet.m in Sources */,
 				0EFBAB1F1E6E8D7C0074277D /* RegistrationViewController.swift in Sources */,
 				0EC57C111E71254200B247E0 /* FMDatabaseAdditions.m in Sources */,
