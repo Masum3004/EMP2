@@ -16,8 +16,15 @@
 		0EB56ACE1E6D788B0039E5CC /* EMPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB56ACD1E6D788B0039E5CC /* EMPTests.swift */; };
 		0EB56AD91E6D788B0039E5CC /* EMPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB56AD81E6D788B0039E5CC /* EMPUITests.swift */; };
 		0EB56AE81E6D90A50039E5CC /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0EB56AE71E6D90A50039E5CC /* bg.jpg */; };
+		0EC57C011E7121A100B247E0 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C001E7121A100B247E0 /* Util.swift */; };
+		0EC57C041E7121FF00B247E0 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EC57C031E7121FF00B247E0 /* libsqlite3.0.tbd */; };
+		0EC57C081E71240E00B247E0 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C071E71240E00B247E0 /* ModelManager.swift */; };
+		0EC57C101E71254200B247E0 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C0A1E71254200B247E0 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0EC57C111E71254200B247E0 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C0C1E71254200B247E0 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0EC57C121E71254200B247E0 /* fmdb.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0EC57C0D1E71254200B247E0 /* fmdb.txt */; };
+		0EC57C131E71254200B247E0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC57C0F1E71254200B247E0 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0EC57C151E712AE600B247E0 /* EMP.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0EC57C141E712AE600B247E0 /* EMP.sqlite */; };
 		0EF740561E6EB977006954EC /* power-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EF740551E6EB977006954EC /* power-button.png */; };
-		0EF740581E6EC15E006954EC /* EMP.db in Resources */ = {isa = PBXBuildFile; fileRef = 0EF740571E6EC15E006954EC /* EMP.db */; };
 		0EFBAB1F1E6E8D7C0074277D /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFBAB1E1E6E8D7C0074277D /* RegistrationViewController.swift */; };
 		0EFBAB211E6E8D870074277D /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFBAB201E6E8D870074277D /* EmployeeListViewController.swift */; };
 		0EFBAB231E6E8D920074277D /* EmployeeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFBAB221E6E8D920074277D /* EmployeeDetailViewController.swift */; };
@@ -59,6 +66,18 @@
 		0EB56AD81E6D788B0039E5CC /* EMPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMPUITests.swift; sourceTree = "<group>"; };
 		0EB56ADA1E6D788B0039E5CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EB56AE71E6D90A50039E5CC /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		0EC57BEF1E71215E00B247E0 /* EMP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EMP-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		0EC57C001E7121A100B247E0 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		0EC57C031E7121FF00B247E0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		0EC57C071E71240E00B247E0 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		0EC57C091E71254200B247E0 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		0EC57C0A1E71254200B247E0 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		0EC57C0B1E71254200B247E0 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		0EC57C0C1E71254200B247E0 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		0EC57C0D1E71254200B247E0 /* fmdb.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fmdb.txt; sourceTree = "<group>"; };
+		0EC57C0E1E71254200B247E0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		0EC57C0F1E71254200B247E0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		0EC57C141E712AE600B247E0 /* EMP.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = EMP.sqlite; sourceTree = "<group>"; };
 		0EF740551E6EB977006954EC /* power-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "power-button.png"; sourceTree = "<group>"; };
 		0EF740571E6EC15E006954EC /* EMP.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = EMP.db; sourceTree = "<group>"; };
 		0EFBAB1E1E6E8D7C0074277D /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EC57C041E7121FF00B247E0 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +117,8 @@
 		0EB56AAC1E6D788B0039E5CC = {
 			isa = PBXGroup;
 			children = (
+				0EC57C141E712AE600B247E0 /* EMP.sqlite */,
+				0EC57BED1E71212E00B247E0 /* Third Party */,
 				0EF740571E6EC15E006954EC /* EMP.db */,
 				0EB56AE91E6D94AE0039E5CC /* Controller */,
 				0EB56AE61E6D907B0039E5CC /* resource */,
@@ -104,6 +126,7 @@
 				0EB56ACC1E6D788B0039E5CC /* EMPTests */,
 				0EB56AD71E6D788B0039E5CC /* EMPUITests */,
 				0EB56AB61E6D788B0039E5CC /* Products */,
+				0EC57C021E7121FF00B247E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +148,7 @@
 				0EB56ABC1E6D788B0039E5CC /* Main.storyboard */,
 				0EB56ABF1E6D788B0039E5CC /* Assets.xcassets */,
 				0EB56AC11E6D788B0039E5CC /* LaunchScreen.storyboard */,
+				0EC57BEF1E71215E00B247E0 /* EMP-Bridging-Header.h */,
 				0EB56AC41E6D788B0039E5CC /* Info.plist */,
 			);
 			path = EMP;
@@ -169,6 +193,38 @@
 				0EFBAB281E6EAB2A0074277D /* EmployeeTableViewCell.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		0EC57BED1E71212E00B247E0 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				0EC57C071E71240E00B247E0 /* ModelManager.swift */,
+				0EC57C001E7121A100B247E0 /* Util.swift */,
+				0EC57BEE1E71213800B247E0 /* FMDB */,
+			);
+			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		0EC57BEE1E71213800B247E0 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				0EC57C091E71254200B247E0 /* FMDatabase.h */,
+				0EC57C0A1E71254200B247E0 /* FMDatabase.m */,
+				0EC57C0B1E71254200B247E0 /* FMDatabaseAdditions.h */,
+				0EC57C0C1E71254200B247E0 /* FMDatabaseAdditions.m */,
+				0EC57C0D1E71254200B247E0 /* fmdb.txt */,
+				0EC57C0E1E71254200B247E0 /* FMResultSet.h */,
+				0EC57C0F1E71254200B247E0 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		0EC57C021E7121FF00B247E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EC57C031E7121FF00B247E0 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +296,7 @@
 					0EB56AB41E6D788B0039E5CC = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4NS8D3NZ2F;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					0EB56AC81E6D788B0039E5CC = {
@@ -285,9 +342,10 @@
 				0EB56AC31E6D788B0039E5CC /* LaunchScreen.storyboard in Resources */,
 				0EFBAB251E6E930B0074277D /* back.png in Resources */,
 				0EB56AC01E6D788B0039E5CC /* Assets.xcassets in Resources */,
-				0EF740581E6EC15E006954EC /* EMP.db in Resources */,
 				0EF740561E6EB977006954EC /* power-button.png in Resources */,
+				0EC57C151E712AE600B247E0 /* EMP.sqlite in Resources */,
 				0EB56AE81E6D90A50039E5CC /* bg.jpg in Resources */,
+				0EC57C121E71254200B247E0 /* fmdb.txt in Resources */,
 				0EB56ABE1E6D788B0039E5CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,8 +374,13 @@
 				0EFBAB211E6E8D870074277D /* EmployeeListViewController.swift in Sources */,
 				0EFBAB291E6EAB2A0074277D /* EmployeeTableViewCell.swift in Sources */,
 				0E02D2E01E6D952600D886AE /* LoginViewController.swift in Sources */,
+				0EC57C101E71254200B247E0 /* FMDatabase.m in Sources */,
+				0EC57C081E71240E00B247E0 /* ModelManager.swift in Sources */,
 				0EB56ABB1E6D788B0039E5CC /* ViewController.swift in Sources */,
+				0EC57C131E71254200B247E0 /* FMResultSet.m in Sources */,
 				0EFBAB1F1E6E8D7C0074277D /* RegistrationViewController.swift in Sources */,
+				0EC57C111E71254200B247E0 /* FMDatabaseAdditions.m in Sources */,
+				0EC57C011E7121A100B247E0 /* Util.swift in Sources */,
 				0EB56AB91E6D788B0039E5CC /* AppDelegate.swift in Sources */,
 				0EFBAB231E6E8D920074277D /* EmployeeDetailViewController.swift in Sources */,
 			);
@@ -471,12 +534,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = 4NS8D3NZ2F;
 				INFOPLIST_FILE = EMP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Webmyne.EMP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./EMP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -485,12 +552,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				DEVELOPMENT_TEAM = 4NS8D3NZ2F;
 				INFOPLIST_FILE = EMP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Webmyne.EMP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "./EMP-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
