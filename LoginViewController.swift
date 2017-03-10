@@ -144,9 +144,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 let emp_id = dict.value(forKey: "emp_id")
                 
+                
+                let emp_name = dict.value(forKey: "username")
+
                 print(emp_id as Any)
                 
                 UserDefaults.standard.set(emp_id, forKey: "parentId")
+                UserDefaults.standard.set(emp_name, forKey: "parentName")
                 UserDefaults.standard.synchronize()
             }
             

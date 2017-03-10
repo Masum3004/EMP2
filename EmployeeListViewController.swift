@@ -16,6 +16,8 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
     
     @IBOutlet var lblNoMember : UILabel!
   
+    @IBOutlet var lblHeader : UILabel!
+    
     var snackbar: MJSnackBar!
 
     var memberArr = NSMutableArray()
@@ -25,6 +27,9 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
         super.viewDidLoad()
 
         snackbar = MJSnackBar(onView: self.view)
+        
+        
+        lblHeader.text = "Welcome \(UserDefaults.standard.value(forKey: "parentName") as! String),"
         
         let emp_id = UserDefaults.standard.value(forKey: "parentId") as! String
         fetchMemberDataFromDatabase(parentID: emp_id)
@@ -75,10 +80,12 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
         
         let dict = memberArr.object(at: indexPath.row) as! NSDictionary
 
+        cell.lblMobileNo.text = dict.value(forKey: "mobile_no") as! String?
+        
         cell.lblDepartment.text = dict.value(forKey: "department_name") as! String?
         cell.lblMemberName.text = dict.value(forKey: "name") as! String?
         
-        
+    
         return cell;
     }
     
@@ -109,6 +116,22 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
                 // 5
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:IndexPath!) -> Void in
            
+            let dict = self.memberArr.object(at: indexPath.row) as! NSDictionary
+
+            let sharedInstance = ModelManager.getInstance()
+
+            
+             sharedInstance.database!.open()
+            
+            let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM Member WHERE member_id=?", withArgumentsIn: [dict.value(forKey: "member_id") as! String])
+             sharedInstance.database!.close()
+            
+            if (isDeleted) {
+                
+                let emp_id = UserDefaults.standard.value(forKey: "parentId") as! String
+                self.fetchMemberDataFromDatabase(parentID: emp_id)
+            }
+            
         })
         deleteAction.backgroundColor = UIColor.red
        
@@ -138,7 +161,6 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
         if (resultSet != nil) {
             
             while resultSet.next() {
-                
                 
                 
                 let memberDict : NSMutableDictionary = NSMutableDictionary()
@@ -180,5 +202,38 @@ class EmployeeListViewController: UIViewController, UITableViewDelegate,  UITabl
         
     }
 
+    @IBAction func btnLogout(_ sender : Any) {
+        
+        let alert = UIAlertController(title: "EMP", message: "Are you sure want to Logout?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let cancelAction = UIAlertAction(title: "No", style: .cancel) { (action:UIAlertAction!) in
+            
+            print("No")
+        }
+        alert.addAction(cancelAction)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action:UIAlertAction!) in
+            
+            UserDefaults.standard.removeObject(forKey: "parentId")
+            UserDefaults.standard.removeObject(forKey: "parentName")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+            let viewController = storyboard.instantiateViewController(withIdentifier: "SIGNIN") as! EmployeeDetailViewController
+        
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        alert.addAction(yesAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
     
+    //MARK: Searchbar
+    
+    @IBAction func searchEvent(sender : UITextField) {
+     
+    }
+        
 }

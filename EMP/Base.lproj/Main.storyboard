@@ -723,15 +723,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1E-1f-2TD">
-                                        <rect key="frame" x="0.0" y="25" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Zbn-fI-uiR"/>
-                                            <constraint firstAttribute="width" constant="40" id="eOy-qg-ynp"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                        <state key="normal" image="back.png"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPC-VP-dyl">
                                         <rect key="frame" x="333" y="25" width="40" height="40"/>
                                         <constraints>
@@ -742,17 +733,18 @@
                                         <state key="normal" image="power-button.png">
                                             <color key="titleColor" red="0.47058823529999999" green="0.20784313730000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnLogout:" destination="LsQ-Ta-31p" eventType="touchDown" id="1T5-uc-iZe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.43921568630000002" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="0SV-0P-xst"/>
-                                    <constraint firstItem="kiA-46-MlC" firstAttribute="centerY" secondItem="i1E-1f-2TD" secondAttribute="centerY" id="5WR-ys-uMp"/>
+                                    <constraint firstAttribute="bottom" secondItem="kiA-46-MlC" secondAttribute="bottom" constant="10" id="QRB-4B-0Yz"/>
                                     <constraint firstItem="kiA-46-MlC" firstAttribute="centerX" secondItem="CLm-r0-N6B" secondAttribute="centerX" id="RFj-E3-ZiG"/>
                                     <constraint firstAttribute="trailing" secondItem="kPC-VP-dyl" secondAttribute="trailing" constant="2" id="hDa-1a-khx"/>
                                     <constraint firstAttribute="bottom" secondItem="kPC-VP-dyl" secondAttribute="bottom" id="ly7-On-iji"/>
-                                    <constraint firstItem="i1E-1f-2TD" firstAttribute="leading" secondItem="CLm-r0-N6B" secondAttribute="leading" id="qhF-U6-Jc3"/>
-                                    <constraint firstAttribute="bottom" secondItem="i1E-1f-2TD" secondAttribute="bottom" id="vfo-fM-k3R"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdt-5h-txH">
@@ -761,10 +753,10 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2s-71-tHc">
                                         <rect key="frame" x="8" y="8" width="359" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
+                                            <action selector="searchEventWithSender:" destination="BgL-6Y-bHs" eventType="editingChanged" id="sc0-n0-Jt8"/>
                                             <outlet property="delegate" destination="BgL-6Y-bHs" id="h5m-kx-yD7"/>
                                         </connections>
                                     </textField>
@@ -801,7 +793,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wKt-hl-s0R" id="fCg-5T-gUU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJB-kW-tDz">
@@ -847,8 +839,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btnCall" destination="M8z-Ok-PTc" id="sLY-7Q-Nwz"/>
                                             <outlet property="lblDepartment" destination="J4n-o9-0Z9" id="5HL-aN-KAt"/>
                                             <outlet property="lblMemberName" destination="NJB-kW-tDz" id="2Dc-dw-KW6"/>
+                                            <outlet property="lblMobileNo" destination="qBv-7V-Mc1" id="7uG-7K-UBg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -884,6 +878,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblHeader" destination="kiA-46-MlC" id="oQ3-Lr-VRr"/>
                         <outlet property="lblNoMember" destination="NeS-vH-gGG" id="p8r-jg-Dha"/>
                         <outlet property="tableView" destination="cqI-1T-eve" id="rdC-JJ-0bV"/>
                         <outlet property="txtSearch" destination="r2s-71-tHc" id="fL5-nk-ytv"/>

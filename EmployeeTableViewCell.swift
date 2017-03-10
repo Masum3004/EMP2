@@ -13,6 +13,10 @@ class EmployeeTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDepartment: UILabel!
     @IBOutlet weak var lblMemberName: UILabel!
     
+    @IBOutlet var lblMobileNo: UILabel!
+    
+    @IBOutlet var btnCall: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
