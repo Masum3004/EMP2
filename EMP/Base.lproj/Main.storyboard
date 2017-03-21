@@ -168,7 +168,7 @@
                                 <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.43921568630000002" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="shadowColor" red="0.47058823529999999" green="0.20784313730000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="-3"/>
                             </label>
                         </subviews>
